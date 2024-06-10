@@ -3,8 +3,8 @@ def main():
     A, P, t = compound()
     printValue(A, P, t)
 
-# take user input for values
-def getVal(prompt = 'Enter number: '):
+# generic function to handle exceptions
+def getNum(prompt = 'Enter number: '):
     while True:
         num = input(prompt)
         try:
@@ -14,13 +14,14 @@ def getVal(prompt = 'Enter number: '):
             print('Invalid number. Please enter a valid number.')
             
 
-# interest formula
+# take user input for values
 def compound():
-    P = float(getVal('How much are you investing?\n'))
-    r = float(getVal('What is the interest rate in %?\n'))
-    n = float(getVal('How many times per year is the interest being compounded?\n'))
-    t = float(getVal('How many years are you leaving the investment to be compounded?\n'))
+    P = float(getNum('How much are you investing?\n'))
+    r = float(getNum('What is the interest rate in %?\n'))
+    n = float(getNum('How many times per year is the interest being compounded?\n'))
+    t = float(getNum('How many years are you leaving the investment to be compounded?\n'))
 
+# calculate total with interest formula
     A = P * ((1+((r * 0.01)/n)) ** (n * t))
     return A, P, t
 
